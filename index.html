@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Selector</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+      <label><input type="radio" name="option" value="All" onchange="changeImage(this)" checked> All</label>
+      <label><input type="radio" name="option" value="Easy" onchange="changeImage(this)"> Easy</label>
+      <label><input type="radio" name="option" value="Medium" onchange="changeImage(this)"> Medium</label>
+      <label><input type="radio" name="option" value="Hard" onchange="changeImage(this)"> Hard</label>
+    </div>
+    <div class="image-container">
+      <img id="selected-image" src="all.png" alt="Selected Image">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
