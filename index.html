@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Black Background Website</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    .image-container {
+      margin-right: 20px; /* Gap between image and checklist */
+    }
+    .checkbox-wrapper {
+      background-color: #888888;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .checkbox-label {
+      display: block;
+      margin-top: 10px;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .image-preview {
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkbox-container">
+    <div class="image-container">
+      <img src="easy_medium_hard.png" alt="Image" class="image-preview" id="preview" />
+    </div>
+    <div class="checkbox-wrapper">
+      <label class="checkbox-label">
+        <input type="checkbox" name="difficulty" value="easy" checked> Easy
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" name="difficulty" value="medium" checked> Medium
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" name="difficulty" value="hard" checked> Hard
+      </label>
+    </div>
+  </div>
+
+  <script>
+    const checkboxes = document.querySelectorAll('input[name="difficulty"]');
+    const imagePreview = document.getElementById('preview');
+  
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', updateImage);
+    });
+  
+    function updateImage() {
+      let imageName = '';
+  
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          imageName += checkbox.value + '_';
+        }
+      });
+  
+      if (imageName === '') {
+        imageName = 'board';
+      } else {
+        imageName = imageName.slice(0, -1); // Remove the trailing underscore
+      }
+  
+      // Update the image source based on the selected checkboxes
+      imagePreview.src = imageName + '.png';
+    }
+  </script>
+  
+</body>
+</html>
